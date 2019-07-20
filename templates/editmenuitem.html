@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <title>Edit Menu Item</title>
+</head>
+<body>
+    <h1>Edit {{ i.name }}</h1>
+
+    <form action="{{ url_for('editMenuItem', restaurant_id = restaurant_id, menu_id = menu_id) }}" method="post">
+        <p>Name:</p>
+        <input type="text" size="30" name="name" value="{{ i.name }}">
+        <p>Description:</p>
+        <input type="text" size="100" name="description" value="{{ i.description }}">
+        <p>Price:</p>
+        <input type="text" size="10" name="price" value="{{ i.price }}">
+        <p>Course:</p>
+        <input type="radio" size="30" name="course" value="appetizer"checked> Appetizer<br>
+        <input type="radio" size="30" name="course" value="entree"> Entree<br>
+        <input type="radio" size="30" name="course" value="dessert"> Dessert<br>
+        <input type="radio" size="30" name="course" value="beverage"> Beverage</br><br>
+
+        <input type="submit" value="Edit"><br><br>
+
+        <a href="{{ url_for('showMenu', restaurant_id = restaurant_id) }}">Cancel</a>
+    </form>
+    
+</body>
+</html>

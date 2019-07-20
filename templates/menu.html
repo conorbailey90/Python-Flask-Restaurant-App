@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <title>Restaurant Menu</title>
+</head>
+<body>
+
+        <h1> {{ restaurant.name }}</h1></br>
+
+        <h3><a href="{{ url_for('newMenuItem', restaurant_id = restaurant.id) }}">Add New Menu Item</a></h3> 
+
+   
+        {% for item in items %}
+
+        {{item.name}}
+        </br>
+        {{item.description}}
+        </br>
+        {{item.price}}
+        </br>
+        <a href="{{ url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}">Edit</a>
+        </br>
+        <a href="{{ url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id= item.id) }}">Delete</a>
+        </br>
+        </br>
+ 
+        {% endfor %}
+
+        <a href="{{ url_for('showRestaurants') }}">Home</a>
+</body>
+</html>
